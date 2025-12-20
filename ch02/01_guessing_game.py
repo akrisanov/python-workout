@@ -11,12 +11,12 @@ def guessing_game(start=1, end=100, tries=3):
 
     logger.debug("The target number is %d", answer)
 
+    print(f"I'm thinking of a number between {start} and {end}")
+    print(f"You have {tries} tries.")
+
     while guesses < tries:
         try:
-            guess_str = input(
-                f"I'm thinking of a number between {start} and {end}.\n"
-                f"You have {tries} tries. Enter your guess in base {base}: "
-            ).strip()
+            guess_str = input(f"Enter your guess in base {base}: ").strip()
             guess = int(guess_str, base)
         except ValueError:
             print("Please enter a valid integer")
