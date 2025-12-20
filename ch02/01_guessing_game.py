@@ -4,16 +4,20 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def guessing_game():
-    answer = random.randint(1, 100)
+def guessing_game(start=1, end=100, tries=3):
+    answer = random.randint(start, end)
+    base = random.randint(2, 16)
     guesses = 0
 
-    logger.debug(f"The target number is {answer}")
+    logger.debug("The target number is %d", answer)
 
-    while guesses < 3:
+    while guesses < tries:
         try:
-            guess_str = input("Guess a number: ").strip()
-            guess = int(guess_str)
+            guess_str = input(
+                f"I'm thinking of a number between {start} and {end}.\n"
+                f"You have {tries} tries. Enter your guess in base {base}: "
+            ).strip()
+            guess = int(guess_str, base)
         except ValueError:
             print("Please enter a valid integer")
             continue
