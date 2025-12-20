@@ -5,7 +5,7 @@ logger = logging.getLogger(__name__)
 
 
 def guessing_game():
-    answer = random.randint(1, 100)
+    answer = random.randint(0, 100)
     logger.debug(f"The target number is {answer}")
 
     while True:
