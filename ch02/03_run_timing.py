@@ -1,3 +1,6 @@
+from decimal import Decimal, InvalidOperation
+
+
 def run_timing() -> tuple[float, int]:
     total = 0.0
     runs = 0
@@ -29,9 +32,22 @@ def take_float(number: float, before: int, after: int) -> float:
     return sign * (last_int_digits + first_fr_digits)
 
 
+def sum(x: Decimal, y: Decimal) -> Decimal:
+    return x + y
+
+
 if __name__ == "__main__":
     # avg_time, runs = run_timing()
     # print(f"Average of {avg_time:.2f}, over {runs} runs")
 
-    print(take_float(1234.5678, 2, 3))
-    print(take_float(-1234.5678, 2, 3))
+    # print(take_float(1234.5678, 2, 3))
+    # print(take_float(-1234.5678, 2, 3))
+
+    try:
+        x = Decimal(input("Enter x: "))
+        y = Decimal(input("Enter y: "))
+    except InvalidOperation:
+        print("Enter a valid number")
+        exit(-1)
+
+    print(f"x + y = {sum(x, y)}")
