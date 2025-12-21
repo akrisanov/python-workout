@@ -1,3 +1,6 @@
+from re import A
+
+
 def hex_output(hexnum: str) -> int:
     decnum = 0
     for power, digit in enumerate(reversed(hexnum)):
@@ -23,6 +26,14 @@ def hex_output_ord(hexnum: str) -> int:
     return decnum
 
 
+def print_name_triangle(name: str):
+    for i in range(len(name)):
+        print(name[: i + 1])
+
+
 if __name__ == "__main__":
-    hexnum = input("Enter a hex number to convert: ")
-    print(hex_output_ord(hexnum))
+    # hexnum = input("Enter a hex number to convert: ")
+    # print(hex_output_ord(hexnum))
+
+    name = input("What's your name? ")
+    print_name_triangle(name)
