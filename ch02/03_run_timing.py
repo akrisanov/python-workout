@@ -17,6 +17,21 @@ def run_timing() -> tuple[float, int]:
     return avg_time, runs
 
 
+def take_float(number: float, before: int, after: int) -> float:
+    sign = -1 if number < 0 else 1
+    integer_part = int((abs(number)))
+    last_int_digits = integer_part % (10**before)
+
+    fractional_part = abs(number) - integer_part
+    shifted = fractional_part * (10**after)
+    first_fr_digits = int(shifted + 1e-12) / 10**after
+
+    return sign * (last_int_digits + first_fr_digits)
+
+
 if __name__ == "__main__":
-    avg_time, runs = run_timing()
-    print(f"Average of {avg_time:.2f}, over {runs} runs")
+    # avg_time, runs = run_timing()
+    # print(f"Average of {avg_time:.2f}, over {runs} runs")
+
+    print(take_float(1234.5678, 2, 3))
+    print(take_float(-1234.5678, 2, 3))
