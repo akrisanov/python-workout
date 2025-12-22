@@ -2,9 +2,6 @@ import string
 
 
 def pig_latin(word: str) -> str:
-    if not word:
-        return word
-
     is_capitalized = word[0].isupper() and word[1:].islower()
     punctuation = ""
 
@@ -23,10 +20,20 @@ def pig_latin(word: str) -> str:
     return pig_word + punctuation
 
 
+def pig_latin_alt(word: str) -> str:
+    vowels = set(c for c in word if c in "aeiou")
+    pig_word = f"{word}way" if len(vowels) >= 2 else f"{word[1:]}{word[0]}ay"
+    return pig_word
+
+
 if __name__ == "__main__":
-    print(pig_latin("air"))
-    print(pig_latin("eat"))
-    print(pig_latin("python"))
-    print(pig_latin("Python?"))
-    print(pig_latin("computer."))
-    print(pig_latin("Hello!"))
+    assert pig_latin(""), ""
+    assert pig_latin("air"), "airway"
+    assert pig_latin("eat"), "eatway"
+    assert pig_latin("python"), "ythonpay"
+    assert pig_latin("Python?"), "Ythonpay?"
+    assert pig_latin("computer."), "omputercay."
+    assert pig_latin("Hello!"), "Ellohay!"
+
+    assert pig_latin_alt("wine"), "wineway"
+    assert pig_latin_alt("wind"), "indway"
