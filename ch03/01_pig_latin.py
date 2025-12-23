@@ -27,13 +27,12 @@ def pig_latin_alt(word: str) -> str:
 
 
 if __name__ == "__main__":
-    assert pig_latin(""), ""
-    assert pig_latin("air"), "airway"
-    assert pig_latin("eat"), "eatway"
-    assert pig_latin("python"), "ythonpay"
-    assert pig_latin("Python?"), "Ythonpay?"
-    assert pig_latin("computer."), "omputercay."
-    assert pig_latin("Hello!"), "Ellohay!"
+    assert pig_latin("air") == "airway"
+    assert pig_latin("eat") == "eatway"
+    assert pig_latin("python") == "ythonpay"
+    assert pig_latin("Python?") == "Ythonpay?"
+    assert pig_latin("computer.") == "omputercay."
+    assert pig_latin("Hello!") == "Ellohay!"
 
-    assert pig_latin_alt("wine"), "wineway"
-    assert pig_latin_alt("wind"), "indway"
+    assert pig_latin_alt("wine") == "wineway"
+    assert pig_latin_alt("wind") == "indway"
